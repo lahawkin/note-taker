@@ -28,8 +28,6 @@ function handleRequest(req, res) {
 function displayHome(res) {
   fs.readFile(__dirname + "/public/index.html", function (err, data) {
     if (err) throw err;
-    // We then respond to the client with the HTML page by specifically telling the browser that we are delivering
-    // an html file.
     res.writeHead(200, { "Content-Type": "text/html" });
     res.end(data);
   });
@@ -41,10 +39,7 @@ function displayNotes (res) {
 
   fs.readFile(__dirname + "/public/notes.html", function (err, data) {
     if (err) throw err;
-    // Configure the response to return a status code of 200 (meaning everything went OK), and to be an HTML document
     res.writeHead(200, { "Content-Type": "text/html" });
-
-    // End the response by sending the client the myHTML string (which gets rendered as an HTML document thanks to the code above)
     res.end(data);
   });
 }
