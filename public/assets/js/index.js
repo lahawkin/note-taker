@@ -70,12 +70,13 @@ var handleNoteDelete = function(event) {
   var note = $(this)
     .parent(".list-group-item")
     .data();
-
+  console.log("---->note", note)
   if (activeNote.id === note.id) {
     activeNote = {};
   }
 
   deleteNote(note.id).then(function() {
+    console.log("-->", note.id); 
     getAndRenderNotes();
     renderActiveNote();
   });
